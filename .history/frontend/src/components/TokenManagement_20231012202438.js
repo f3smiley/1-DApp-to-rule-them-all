@@ -37,19 +37,11 @@ const TokenManagement = () => {
       const lockableTokenInstance = new web3.eth.Contract(
         LockableToken.abi,
         deployedNetwork?.address,
-      );
-const LockableToken = artifacts.require("LockableToken");
-const MintableToken = artifacts.require("MintableToken");
+);
 
-// ...
-
-  const mintableTokenInstance = new web3.eth.Contract(
-    MintableToken.abi,
-    mintableTokenAddress
-  );
-
+      const mintableTokenInstance = new web3.eth.Contract(
         MintableToken.abi,
-        deployedNetwork.address,
+        deployedNetwork && deployedNetwork.address,
       );
 
       setLockableTokenContract(lockableTokenInstance);
@@ -87,6 +79,5 @@ const MintableToken = artifacts.require("MintableToken");
     </div>
   );
 };
-
 
 export default TokenManagement;

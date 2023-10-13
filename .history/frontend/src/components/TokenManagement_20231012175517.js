@@ -31,31 +31,22 @@ const TokenManagement = () => {
   }, []);
 
   useEffect(() => {
-    const initContracts = async () => {
-      const networkId = await web3.eth.net.getId();
-      const deployedNetwork = LockableToken.networks[networkId];
-      const lockableTokenInstance = new web3.eth.Contract(
-        LockableToken.abi,
-        deployedNetwork?.address,
-      );
-const LockableToken = artifacts.require("LockableToken");
-const MintableToken = artifacts.require("MintableToken");
-
-// ...
-
-  const mintableTokenInstance = new web3.eth.Contract(
-    MintableToken.abi,
-    mintableTokenAddress
-  );
-
-        MintableToken.abi,
-        deployedNetwork.address,
-      );
-
-      setLockableTokenContract(lockableTokenInstance);
-      setMintableTokenContract(mintableTokenInstance);
-    };
-
+    34:     const initContracts = async () => Promise<void>
+    35:       const networkId = await web3.eth.net.getId();
+    36:       const deployedNetwork = LockableToken.networks[networkId];
+    37:       const lockableTokenInstance = new web3.eth.Contract(
+    38:         LockableToken.abi,
+    39:         deployedNetwork?.address,
+    40:       );
+    41: 
+    42:       const mintableTokenInstance = new web3.eth.Contract(
+    43:         MintableToken.abi,
+    44:         deployedNetwork?.address,
+    45:       );
+    46: 
+    47:       setLockableTokenContract(lockableTokenInstance);
+    48:       setMintableTokenContract(mintableTokenInstance);
+    49:     };
     if (web3) {
       initContracts();
     }
@@ -87,6 +78,5 @@ const MintableToken = artifacts.require("MintableToken");
     </div>
   );
 };
-
 
 export default TokenManagement;

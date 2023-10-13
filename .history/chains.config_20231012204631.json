@@ -1,0 +1,15 @@
+{
+    "chains": {
+        // keys and values reqired for a forked network setup
+        "name": "Catalog",
+        "url": "https://rpc.url.com/yoururl", // RPC URL to interact with the chain
+        "chainId": 12345, // not neccessary to be same as original chain
+        "port": 18514 // can be same port also but make sure it is available to use
+    },
+    {
+        // keys and values required for new local chain setup
+        "name": "Reetik",
+        "chainId": 17080, // can use any valid chain id which is not already in use
+        "port": 17080 // can be different port also but make sure it is available to use
+    }
+}

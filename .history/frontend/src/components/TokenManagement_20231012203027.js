@@ -37,23 +37,22 @@ const TokenManagement = () => {
       const lockableTokenInstance = new web3.eth.Contract(
         LockableToken.abi,
         deployedNetwork?.address,
-      );
-const LockableToken = artifacts.require("LockableToken");
-const MintableToken = artifacts.require("MintableToken");
+);
+const mintableTokenInstance = new web3.eth.Contract(
+  MintableToken.abi,
+  deployedNetwork?.address,
+);
 
-// ...
+Alternatively, the code can also be refactored using a conditional expression:
+javascript
+const mintableTokenInstance = new web3.eth.Contract(
+  MintableToken.abi,
+  deployedNetwork ? deployedNetwork.address : undefined,
+);
 
-  const mintableTokenInstance = new web3.eth.Contract(
-    MintableToken.abi,
-    mintableTokenAddress
-  );
-
-        MintableToken.abi,
-        deployedNetwork.address,
-      );
 
       setLockableTokenContract(lockableTokenInstance);
-      setMintableTokenContract(mintableTokenInstance);
+d      setMintableTokenContract(mintableTokenInstance);
     };
 
     if (web3) {
@@ -87,6 +86,5 @@ const MintableToken = artifacts.require("MintableToken");
     </div>
   );
 };
-
 
 export default TokenManagement;

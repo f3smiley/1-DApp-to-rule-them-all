@@ -1,3 +1,4 @@
+go
 package main
 
 import (
@@ -48,3 +49,4 @@ func setupBesuNode() {
 
 	log.Printf("Besu node started with PID %d", cmd.Process.Pid)
 }
+```

@@ -1,4 +1,4 @@
-go 1.17
+```go
 package main
 
 import (

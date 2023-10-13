@@ -37,4 +37,4 @@ services:
     depends_on:
       - chainlink-node-ethereum
       - chainlink-node-polygon
-      - hyperledger-bisu-node
+      - hyperledger-bisu-node```

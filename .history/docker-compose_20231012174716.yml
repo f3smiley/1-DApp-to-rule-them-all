@@ -1,4 +1,4 @@
-version: '3'
+```version: '3'
 services:
   chainlink-node-ethereum:
     build:
@@ -37,4 +37,4 @@ services:
     depends_on:
       - chainlink-node-ethereum
       - chainlink-node-polygon
-      - hyperledger-bisu-node
+      - hyperledger-bisu-node```

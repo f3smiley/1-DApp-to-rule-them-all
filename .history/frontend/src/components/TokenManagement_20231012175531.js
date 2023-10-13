@@ -30,32 +30,7 @@ const TokenManagement = () => {
     initWeb3();
   }, []);
 
-  useEffect(() => {
-    const initContracts = async () => {
-      const networkId = await web3.eth.net.getId();
-      const deployedNetwork = LockableToken.networks[networkId];
-      const lockableTokenInstance = new web3.eth.Contract(
-        LockableToken.abi,
-        deployedNetwork?.address,
-      );
-const LockableToken = artifacts.require("LockableToken");
-const MintableToken = artifacts.require("MintableToken");
-
-// ...
-
-  const mintableTokenInstance = new web3.eth.Contract(
-    MintableToken.abi,
-    mintableTokenAddress
-  );
-
-        MintableToken.abi,
-        deployedNetwork.address,
-      );
-
-      setLockableTokenContract(lockableTokenInstance);
-      setMintableTokenContract(mintableTokenInstance);
-    };
-
+ 
     if (web3) {
       initContracts();
     }
@@ -87,6 +62,5 @@ const MintableToken = artifacts.require("MintableToken");
     </div>
   );
 };
-
 
 export default TokenManagement;
