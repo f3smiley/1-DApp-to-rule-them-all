@@ -20,12 +20,12 @@ services:
       - "6689:6689"
     command: ["node", "polygon-node.js"]
 
-  hyperledger-bisu-node:
+  hyperledger-besu-node:
     build:
-      context: ./docker/hyperledger-bisu-node
+      context: ./docker/hyperledger-besu-node
       dockerfile: Dockerfile
     volumes:
-      - ./config/hyperledger-bisu-node-config.json:/config.json
+      - ./config/hyperledger-besu-node-config.json:/config.json
     ports:
       - "8545:8545"
     command: ["go", "run", "setup.go"]
@@ -35,6 +35,5 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - chainlink-node-ethereum
-      - chainlink-node-polygon
-      - hyperledger-bisu-node
+      - chainlink-node
+      - hyperledger-besu-node
