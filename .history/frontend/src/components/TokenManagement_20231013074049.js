@@ -137,6 +137,21 @@ mintableTokenInstance = web3.eth.Contract(MintableToken.abi, tokenAddress, {})
 );
 
 
+// ...
+
+
+
+// ...
+
+
+
+// ...
+
+
+
+// ...
+
+
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
     };

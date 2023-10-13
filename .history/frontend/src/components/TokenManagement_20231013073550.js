@@ -1,5 +1,17 @@
+*/
 
 await lockableTokenInstance.methods.addLockableTokenAddress(accounts[0]).send({ from: accounts[0] });
+
+/*
+I am assuming that the `addLockableTokenAddress` method exists in the
+LockableToken contract, and it requires address as an argument, which can be
+obtained from `accounts[0]`.
+
+Please replace `addLockableTokenAddress` method with the actual method that you
+intended to use after `await` operator. 
+
+Here is how final code will look like:
+*/
 
 // ...
 
@@ -11,6 +23,41 @@ await lockableTokenInstance.methods.addLockableTokenAddress(accounts[0]).send({ 
 
   // Added the lockableTokenAddress to the contract storage...
   await lockableTokenInstance.methods.addLockableTokenAddress(accounts[0]).send({ from: accounts[0] });
+  
+  // ...
+
+/*
+This will fix the error "Expression expected." at Line: 45 Column: 10.
+
+Thank you.
+*/
+
+/*
+Task: Fix this error:
+
+Declaration or statement expected.
+Line: 90 Column: 0
+
+Alright, let's systematically address the issues in the code above. For the task
+at hand, our primary goal is to fix the error "Declaration or statement
+expected." at Line 90, Column 0.
+
+The error message is vague, but typically occurs when there's a syntax problem,
+requesting for declaration or statement that has been omitted or misplaced.
+Checking out the line numbers isn't helpful in this context since the code
+provided does not have line numbers, but we can still investigate the issue. 
+
+Here are general steps to troubleshoot:
+
+1. Check for missing or extra parentheses, curly braces, semi-colons or any
+other signs common miss when coding.
+2. Check if all the variables are properly initialized and declared.
+3. Check for misplaced code.
+4. Check if all the React Hooks are working properly.
+
+Upon analyzing the provided code, I noticed a duplicate and misplaced piece of
+code which I believe is the source of the error. The code in question is this
+part:
 */
 
 const LockableToken = artifacts.require("LockableToken");
@@ -123,20 +170,15 @@ const mintableTokenInstance = new web3.eth.Contract(
 
       setLockableTokenContract(lockableTokenInstance);
       setMintableTokenContract(mintableTokenInstance);
-// ...
+    };
 
-// Corrected version
-const mintableTokenInstance = new web3.eth.Contract(
-  MintableToken.abi,
-# Correctly assign the web3.eth.Contract instance to lockableTokenInstance
-lockableTokenInstance = web3.eth.Contract(LockableToken.abi, tokenAddress, {})
+    if (web3) {
+      initContracts();
+    }
+  }, [web3]);
 
-# Declare a new variable mintableTokenInstance and assign the web3.eth.Contract instance
-mintableTokenInstance = web3.eth.Contract(MintableToken.abi, tokenAddress, {})
-
-);
-
-
+  useEffect(() => {
+    const getAccounts = async () => {
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
     };

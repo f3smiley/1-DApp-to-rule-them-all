@@ -128,13 +128,24 @@ const mintableTokenInstance = new web3.eth.Contract(
 // Corrected version
 const mintableTokenInstance = new web3.eth.Contract(
   MintableToken.abi,
-# Correctly assign the web3.eth.Contract instance to lockableTokenInstance
-lockableTokenInstance = web3.eth.Contract(LockableToken.abi, tokenAddress, {})
-
-# Declare a new variable mintableTokenInstance and assign the web3.eth.Contract instance
-mintableTokenInstance = web3.eth.Contract(MintableToken.abi, tokenAddress, {})
-
+  deployedNetwork.address,  // Used deployedNetwork.address instead of mintableTokenAddress
+  {} // Passing the options for the contract instance as an empty object
 );
+
+
+// ...
+
+
+
+// ...
+
+
+
+// ...
+
+
+
+// ...
 
 
       const accounts = await web3.eth.getAccounts();

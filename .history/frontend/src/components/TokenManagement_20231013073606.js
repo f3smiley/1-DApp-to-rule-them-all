@@ -1,6 +1,17 @@
 
 await lockableTokenInstance.methods.addLockableTokenAddress(accounts[0]).send({ from: accounts[0] });
 
+/*
+I am assuming that the `addLockableTokenAddress` method exists in the
+LockableToken contract, and it requires address as an argument, which can be
+obtained from `accounts[0]`.
+
+Please replace `addLockableTokenAddress` method with the actual method that you
+intended to use after `await` operator. 
+
+Here is how final code will look like:
+*/
+
 // ...
 
   await deployer.deploy(lockableTokenArtifact, { from: accounts[0] });
@@ -123,20 +134,15 @@ const mintableTokenInstance = new web3.eth.Contract(
 
       setLockableTokenContract(lockableTokenInstance);
       setMintableTokenContract(mintableTokenInstance);
-// ...
+    };
 
-// Corrected version
-const mintableTokenInstance = new web3.eth.Contract(
-  MintableToken.abi,
-# Correctly assign the web3.eth.Contract instance to lockableTokenInstance
-lockableTokenInstance = web3.eth.Contract(LockableToken.abi, tokenAddress, {})
+    if (web3) {
+      initContracts();
+    }
+  }, [web3]);
 
-# Declare a new variable mintableTokenInstance and assign the web3.eth.Contract instance
-mintableTokenInstance = web3.eth.Contract(MintableToken.abi, tokenAddress, {})
-
-);
-
-
+  useEffect(() => {
+    const getAccounts = async () => {
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
     };

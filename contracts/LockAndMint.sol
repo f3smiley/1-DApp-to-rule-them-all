@@ -6,6 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./LockableToken.sol";
 import "./MintableToken.sol";
+import "@openzeppelin/contracts/utils/ChainId.sol";
 
 contract LockAndMint {
     LockableToken public lockableToken;
@@ -13,6 +14,7 @@ contract LockAndMint {
     AggregatorV3Interface internal priceFeed;
 
     constructor(address _lockableToken, address _mintableToken, address _priceFeed) {
+        require(ChainId.getChainId() == 138, "This contract is only for DeFi Oracle Mainnet (Chain 138)");
         lockableToken = LockableToken(_lockableToken);
         mintableToken = MintableToken(_mintableToken);
         priceFeed = AggregatorV3Interface(_priceFeed);

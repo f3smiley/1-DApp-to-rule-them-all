@@ -1,16 +1,29 @@
+/*
+Task: Fix this error:
 
-await lockableTokenInstance.methods.addLockableTokenAddress(accounts[0]).send({ from: accounts[0] });
+Declaration or statement expected.
+Line: 90 Column: 0
 
-// ...
+Alright, let's systematically address the issues in the code above. For the task
+at hand, our primary goal is to fix the error "Declaration or statement
+expected." at Line 90, Column 0.
 
-  await deployer.deploy(lockableTokenArtifact, { from: accounts[0] });
-  lockableTokenInstance = await lockableTokenArtifact.deployed();
+The error message is vague, but typically occurs when there's a syntax problem,
+requesting for declaration or statement that has been omitted or misplaced.
+Checking out the line numbers isn't helpful in this context since the code
+provided does not have line numbers, but we can still investigate the issue. 
 
-  await deployer.deploy(mintableTokenArtifact, { from: accounts[0] });
-  mintableTokenInstance = await mintableTokenArtifact.deployed();
+Here are general steps to troubleshoot:
 
-  // Added the lockableTokenAddress to the contract storage...
-  await lockableTokenInstance.methods.addLockableTokenAddress(accounts[0]).send({ from: accounts[0] });
+1. Check for missing or extra parentheses, curly braces, semi-colons or any
+other signs common miss when coding.
+2. Check if all the variables are properly initialized and declared.
+3. Check for misplaced code.
+4. Check if all the React Hooks are working properly.
+
+Upon analyzing the provided code, I noticed a duplicate and misplaced piece of
+code which I believe is the source of the error. The code in question is this
+part:
 */
 
 const LockableToken = artifacts.require("LockableToken");
@@ -30,12 +43,13 @@ module.exports = function(deployer, network, accounts) {
     mintableTokenInstance = await mintableTokenArtifact.deployed();
 
     // Adding the lockableTokenAddress and mintableTokenAddress to the contract storage...
-    //await ... // The rest of your code
+    await ... // The rest of your code
   });
 };
 
 
 //Here is how I would modify it:
+*/
 
   useEffect(() => {
     const initContracts = async () => {
@@ -44,15 +58,15 @@ module.exports = function(deployer, network, accounts) {
       const lockableTokenInstance = new web3.eth.Contract(
         LockableToken.abi,
         deployedNetwork?.address,
-// ...
+      );
 
-// Corrected version
-const mintableTokenInstance = new web3.eth.Contract(
-  MintableToken.abi,
-  deployedNetwork.address, // Used deployedNetwork.address instead of mintableTokenAddress
-  {} // Passing the third argument, options for the contract instance, as an empty object
-);
+      // Removed duplicate artifacts and corrected misplaced code
+      const mintableTokenInstance = new web3.eth.Contract(
+        MintableToken.abi,
+        deployedNetwork.address,
+      );
 
+      setLockableTokenContract(lockableTokenInstance);
       setMintableTokenContract(mintableTokenInstance);
     };
 
@@ -71,9 +85,6 @@ import Web3 from 'web3';
 import MintableToken from '../artifacts/MintableToken.json';
 // import MintableToken from '../artifacts/MintableToken.json';
 
-// NOTE: The error message indicates that there might be a label that is declared but not used or referenced anywhere in the code.
-// However, this code does not contain any labels. Therefore, it's not possible to apply any modifications to the code based on the provided information.
-// It's recommended to double-check the original code and examine the mentioned line and column.
 const TokenManagement = () => {
   const [web3, setWeb3] = useState(null);
   const [accounts, setAccounts] = useState([]);
@@ -123,20 +134,15 @@ const mintableTokenInstance = new web3.eth.Contract(
 
       setLockableTokenContract(lockableTokenInstance);
       setMintableTokenContract(mintableTokenInstance);
-// ...
+    };
 
-// Corrected version
-const mintableTokenInstance = new web3.eth.Contract(
-  MintableToken.abi,
-# Correctly assign the web3.eth.Contract instance to lockableTokenInstance
-lockableTokenInstance = web3.eth.Contract(LockableToken.abi, tokenAddress, {})
+    if (web3) {
+      initContracts();
+    }
+  }, [web3]);
 
-# Declare a new variable mintableTokenInstance and assign the web3.eth.Contract instance
-mintableTokenInstance = web3.eth.Contract(MintableToken.abi, tokenAddress, {})
-
-);
-
-
+  useEffect(() => {
+    const getAccounts = async () => {
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
     };
