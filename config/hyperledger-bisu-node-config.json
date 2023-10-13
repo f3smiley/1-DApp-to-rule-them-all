@@ -1,0 +1,26 @@
+{
+  "besu": {
+    "network": "private",
+    "node": {
+      "name": "HyperledgerBesuNode",
+      "rpc": {
+        "host": "localhost",
+        "port": 8545
+      },
+      "ws": {
+        "host": "localhost",
+        "port": 8546
+      },
+      "dataPath": "/hyperledger-bisu-nodes/data"
+    },
+    "genesis": {
+      "path": "/hyperledger-bisu-nodes/genesis.json"
+    },
+    "chainId": 138,
+    "mining": {
+      "enabled": true,
+      "coinbase": "0x0000000000000000000000000000000000000000"
+    },
+    "bootnodes": []
+  }
+}

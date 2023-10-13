@@ -1,0 +1,40 @@
+version: '3'
+services:
+  chainlink-node-ethereum:
+    build:
+      context: ./docker/chainlink-node
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/chainlink-node-config.json:/config.json
+    ports:
+      - "6688:6688"
+    command: ["node", "ethereum-node.js"]
+
+  chainlink-node-polygon:
+    build:
+      context: ./docker/chainlink-node
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/chainlink-node-config.json:/config.json
+    ports:
+      - "6689:6689"
+    command: ["node", "polygon-node.js"]
+
+  hyperledger-bisu-node:
+    build:
+      context: ./docker/hyperledger-bisu-node
+      dockerfile: Dockerfile
+    volumes:
+      - ./config/hyperledger-bisu-node-config.json:/config.json
+    ports:
+      - "8545:8545"
+    command: ["go", "run", "setup.go"]
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - chainlink-node-ethereum
+      - chainlink-node-polygon
+      - hyperledger-bisu-node```

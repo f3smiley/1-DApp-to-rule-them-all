@@ -1,0 +1,19 @@
+{
+  "CHAINLINK_NODE_ADDRESS": "http://localhost:6688",
+  "ETH_URL": "http://localhost:8545",
+  "ETH_CHAIN_ID": 1,
+  "LINK_CONTRACT_ADDRESS": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+  "ORACLE_CONTRACT_ADDRESS": "0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc",
+  "PRIVATE_KEY": "YOUR_PRIVATE_KEY",
+  "GAS_UPDATER_ENABLED": true,
+  "MINIMUM_CONTRACT_PAYMENT_LINK_JUELS": 100000000000000000,
+  "ALLOW_ORIGINS": "*",
+  "LOG_LEVEL": "info",
+  "FEATURE_EXTERNAL_INITIATORS": true,
+  "CHAINLINK_TLS_PORT": 0,
+  "SECURE_COOKIES": false,
+  "SESSION_TIMEOUT": "48h",
+  "DATABASE_TIMEOUT": "0",
+  "DATABASE_URL": "postgresql://chainlink:chainlink@localhost:5432/chainlink?sslmode=disable",
+  "DATABASE_TOML": "db.toml"
+}

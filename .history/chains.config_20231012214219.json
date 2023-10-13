@@ -1,0 +1,16 @@
+{
+    "chains": {
+        // keys and values reqired for a forked network setup
+        "name": "defi-oracle mainnet",
+        "url": "https://rpc.public-0138.defi-oracle.io", // RPC URL to interact with the chain
+        "chainId": 138, // not neccessary to be same as original chain
+        "port": 18514 // can be same port also but make sure it is available to use
+    },
+    {
+        // keys and values required for new local chain setup
+        "name": "polygon",
+        "url": "https://polygon.llamarpc.com",       
+        "chainId": 17080, // can use any valid chain id which is not already in use
+        "port": 17080 // can be different port also but make sure it is available to use
+    }
+}
