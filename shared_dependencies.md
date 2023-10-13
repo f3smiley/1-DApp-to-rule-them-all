@@ -1,29 +1,27 @@
 Shared Dependencies:
 
-1. **Ethereum and Polygon Networks**: Both networks are used across multiple files, including the smart contracts and the frontend files.
+1. **Ethereum Addresses**: Used in both the smart contracts and the scripts to identify users and contracts.
 
-2. **ERC20 Token Standard**: The LockableToken and MintableToken smart contracts both implement the ERC20 token standard.
+2. **Token Names**: Used in the smart contracts, scripts, and frontend components to identify the tokens.
 
-3. **User Wallet Addresses**: User Ethereum wallet addresses are used in the frontend for user authentication and in the smart contracts for token management.
+3. **API Keys**: Used in the scripts to authenticate with the Etherscan, Coin Market Cap, Coin Gecko, and Besu APIs.
 
-4. **Token Balances**: The user's token balance is used in the frontend for token management and in the smart contracts for locking and minting tokens.
+4. **Contract ABIs**: Used in the scripts and frontend components to interact with the smart contracts.
 
-5. **Chainlink Oracles**: The Chainlink oracles are used in the frontend for data display, in the smart contracts for determining the exchange rate, and in the oracle contracts.
+5. **Contract Addresses**: Used in the scripts and frontend components to locate the smart contracts on the blockchain.
 
-6. **Exchange Rate**: The current exchange rate between the LockableToken and the MintableToken is used in the frontend, the smart contracts, and the oracle contracts.
+6. **Function Names**: Functions like `lockTokens`, `mintSyntheticTokens`, `getBalance`, `getPrice`, etc. are used across multiple files.
 
-7. **Transaction Data**: Transaction data is used in the frontend for transaction management and in the smart contracts for locking and minting tokens.
+7. **DOM Element IDs**: IDs like `lockTokensButton`, `mintTokensButton`, `tokenBalanceDisplay`, etc. are used in the frontend components.
 
-8. **DOM Element IDs**: The frontend files will likely share DOM element IDs for user interaction, such as "walletConnectButton", "lockTokenButton", "mintTokenButton", "unlockTokenButton", "currentBalanceDisplay", and "currentExchangeRateDisplay".
+8. **Message Names**: Messages like `TokensLocked`, `TokensMinted`, `BalanceFetched`, `PriceFetched`, etc. are used in the smart contracts, scripts, and frontend components.
 
-9. **Function Names**: Function names like "connectWallet", "lockTokens", "mintTokens", "unlockTokens", "getBalance", and "getExchangeRate" will likely be used across multiple frontend files.
+9. **NPM Packages**: Packages like `axios`, `ethers`, and `react` are used across multiple files.
 
-10. **Message Names**: Message names for user notifications, such as "walletConnected", "tokensLocked", "tokensMinted", "tokensUnlocked", "transactionSent", and "transactionConfirmed" will likely be used across multiple frontend files.
+10. **Error Messages**: Standardized error messages are used in the smart contracts, scripts, and frontend components for error handling.
 
-11. **Smart Contract Addresses**: The addresses of the deployed smart contracts will be used in the frontend files and in the Chainbridge file for cross-chain communication.
+11. **Chainlink Node Addresses**: Used in the smart contracts and the Chainlink node script to fetch price data.
 
-12. **Chainlink Node Addresses**: The addresses of the Chainlink nodes will be used in the oracle contracts and in the Chainlink nodes file.
+12. **Deployment Script**: The deployment script uses the contract files, the contract ABIs, and the contract addresses.
 
-13. **Hyperledger BISU Node Addresses**: The addresses of the Hyperledger BISU nodes will be used in the smart contracts and in the Hyperledger BISU nodes file.
-
-14. **Security Audit and Testing Functions**: Functions for security auditing and testing, such as "runTests" and "runSecurityAudit", will be used in the testing and security files.
+13. **Security and Optimization Functions**: Functions for error handling, access control, and efficiency optimization are used across multiple files.
