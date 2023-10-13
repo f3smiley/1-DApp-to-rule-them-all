@@ -1,6 +1,6 @@
-# Lock and Mint Synthetic Token DApp
+Lock and Mint Synthetic Token DApp
 
-This DApp allows users to lock ERC20 tokens on Ethereum and mint synthetic tokens on Polygon. It uses Chainlink oracles for exchange rates and Hyperledger Besu nodes for additional security.
+This DApp allows users to lock ERC20 tokens on defi-oracle mainnet chain 138 and mint synthetic tokens on polygon chain 137. It uses Chainlink oracles for exchange rates and Hyperledger Besu nodes for additional security, as well as the place where Chain 138 was created and is still hosted.
 
 ## Dependencies
 
@@ -28,13 +28,13 @@ This DApp allows users to lock ERC20 tokens on Ethereum and mint synthetic token
 
 1. Navigate to the `contracts` directory.
 2. Compile the contracts using `solc`.
-3. Deploy `LockableToken.sol`, `MintableToken.sol`, and `LockAndMint.sol` to the Ethereum and Polygon networks respectively.
+3. Deploy `LockableToken.sol`, `MintableToken.sol`, and `LockAndMint.sol` to the defi-oracle mainnet and polygon networks, respectively.
 
 ## Chainlink Node Setup
 
 1. Navigate to the `chainlink-nodes` directory.
-2. Run `node ethereum-node.js` and `node polygon-node.js` to start the Chainlink nodes.
-3. Ensure the nodes are properly connected to the Ethereum and Polygon networks.
+2. Run `node hyperledger-besu-node.js` and `node polygon-node.js` to start the Chainlink nodes.
+3. Ensure that the nodes are properly connected to the defi-oracle mainnet and polygon networks.
 
 ## Cross-Chain Communication
 
@@ -43,7 +43,7 @@ This DApp allows users to lock ERC20 tokens on Ethereum and mint synthetic token
 
 ## Hyperledger Besu Node Setup
 
-1. Navigate to the `hyperledger-bisu-nodes` directory.
+1. Navigate to the `hyperledger-besu-nodes` directory.
 2. Run `go run setup.go` to set up the Besu nodes.
 3. Run `go run interaction.go` to interact with the Besu nodes.
 
@@ -55,7 +55,7 @@ This DApp allows users to lock ERC20 tokens on Ethereum and mint synthetic token
 ## Docker Setup
 
 1. Navigate to the `docker` directory.
-2. Build the Docker images using `docker build -t chainlink-node ./chainlink-node` and `docker build -t hyperledger-bisu-node ./hyperledger-bisu-node`.
+2. Build the Docker images using `docker build -t chainlink-node ./chainlink-node` and `docker build -t hyperledger-besu-node ./hyperledger-besu-node`.
 3. Run `docker-compose up` to start the services.
 
 ## Usage
