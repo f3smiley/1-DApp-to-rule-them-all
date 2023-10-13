@@ -11,10 +11,10 @@
         "host": "localhost",
         "port": 8546
       },
-      "dataPath": "/hyperledger-bisu-nodes/data"
+      "dataPath": "/hyperledger-besu-nodes/data"
     },
     "genesis": {
-      "path": "/hyperledger-bisu-nodes/genesis.json"
+      "path": "/hyperledger-besu-nodes/genesis.json"
     },
     "chainId": 138,
     "mining": {

@@ -1,9 +1,9 @@
 const { ChainlinkClient } = require('chainlink-client');
 const { ethers } = require('ethers');
-const config = require('../config/defi-oracle-node-config.json');
+const config = require('../config/defi-oracle-mainnet-config.json');
 
 // Initialize Chainlink Client
-const chainlinkClient = new ChainlinkClient(config.defiOracleNodeUrl, config.defiOracleNodeSecret);
+const chainlinkClient = new ChainlinkClient(config.defiOracleMainnetUrl, config.defiOracleMainnetSecret);
 
 // Initialize DeFi Oracle Mainnet provider
 const provider = new ethers.providers.JsonRpcProvider(config.defiOracleMainnetUrl);
@@ -22,8 +22,8 @@ async function getExchangeRate() {
 
 // Function to listen for LockEvent from LockableToken contract on DeFi Oracle Mainnet
 async function listenForLockEvent() {
-  const lockableTokenAddress = config.lockableTokenAddressOnDefiOracle;
-  const lockableTokenABI = require('../contracts/LockableTokenOnDefiOracle.sol').abi;
+  const lockableTokenAddress = config.lockableTokenAddressOnDefiOracleMainnet;
+  const lockableTokenABI = require('../contracts/LockableTokenOnDefiOracleMainnet.sol').abi;
 
   const lockableTokenContract = new ethers.Contract(lockableTokenAddress, lockableTokenABI, provider);
   lockableTokenContract.on('LockEvent', async (userAddress, amount) => {

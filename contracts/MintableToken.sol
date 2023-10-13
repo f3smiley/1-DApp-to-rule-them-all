@@ -2,15 +2,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC138/ERC138.sol";
-import "@openzeppelin/contracts/token/ERC137/ERC137.sol";
+import "@openzeppelin/contracts/token/ERC138/DeFiOracleMainnet.sol";
+import "@openzeppelin/contracts/token/ERC137/PolygonMainnet.sol";
 
-contract MintableToken is ERC137 {
+contract MintableToken is PolygonMainnet {
     address public minter;
 
     event Mint(address indexed to, uint256 amount);
 
-    constructor() ERC137("Wrapped DeFi Oracle", "WDO") {
+    constructor() PolygonMainnet("Wrapped DeFi Oracle", "WDO") {
         minter = msg.sender;
     }
 
