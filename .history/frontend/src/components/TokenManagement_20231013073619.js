@@ -123,20 +123,15 @@ const mintableTokenInstance = new web3.eth.Contract(
 
       setLockableTokenContract(lockableTokenInstance);
       setMintableTokenContract(mintableTokenInstance);
-// ...
+    };
 
-// Corrected version
-const mintableTokenInstance = new web3.eth.Contract(
-  MintableToken.abi,
-# Correctly assign the web3.eth.Contract instance to lockableTokenInstance
-lockableTokenInstance = web3.eth.Contract(LockableToken.abi, tokenAddress, {})
+    if (web3) {
+      initContracts();
+    }
+  }, [web3]);
 
-# Declare a new variable mintableTokenInstance and assign the web3.eth.Contract instance
-mintableTokenInstance = web3.eth.Contract(MintableToken.abi, tokenAddress, {})
-
-);
-
-
+  useEffect(() => {
+    const getAccounts = async () => {
       const accounts = await web3.eth.getAccounts();
       setAccounts(accounts);
     };

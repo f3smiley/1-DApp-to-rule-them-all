@@ -1,12 +1,12 @@
 const { ChainlinkClient } = require('chainlink-client');
 const { ethers } = require('ethers');
-const config = require('../config/chainlink-node-config.json');
+const config = require('../config/defi-oracle-node-config.json');
 
 // Initialize Chainlink Client
-const chainlinkClient = new ChainlinkClient(config.chainlinkNodeUrl, config.chainlinkNodeSecret);
+const chainlinkClient = new ChainlinkClient(config.defiOracleNodeUrl, config.defiOracleNodeSecret);
 
-// Initialize Ethereum provider
-const provider = new ethers.providers.JsonRpcProvider(config.ethereumNodeUrl);
+// Initialize DeFi Oracle Mainnet provider
+const provider = new ethers.providers.JsonRpcProvider(config.defiOracleMainnetUrl);
 
 // Function to get exchange rate from Chainlink Oracle
 async function getExchangeRate() {
@@ -20,10 +20,10 @@ async function getExchangeRate() {
   }
 }
 
-// Function to listen for LockEvent from LockableToken contract
+// Function to listen for LockEvent from LockableToken contract on DeFi Oracle Mainnet
 async function listenForLockEvent() {
-  const lockableTokenAddress = config.lockableTokenAddress;
-  const lockableTokenABI = require('../contracts/LockableToken.sol').abi;
+  const lockableTokenAddress = config.lockableTokenAddressOnDefiOracle;
+  const lockableTokenABI = require('../contracts/LockableTokenOnDefiOracle.sol').abi;
 
   const lockableTokenContract = new ethers.Contract(lockableTokenAddress, lockableTokenABI, provider);
   lockableTokenContract.on('LockEvent', async (userAddress, amount) => {

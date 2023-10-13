@@ -2,16 +2,16 @@ const Web3 = require('web3');
 const ChainBridge = require('@chainbridge/sdk');
 
 // Initialize Web3 instances for Ethereum and Polygon
-const web3Eth = new Web3('http://localhost:8545'); // Ethereum RPC URL
+const web3Eth = new Web3('http://localhost:138'); // DeFi Oracle Mainnet RPC URL
 const web3Poly = new Web3('http://localhost:8546'); // Polygon RPC URL
 
 // Initialize ChainBridge
 const chainBridge = new ChainBridge.ChainBridge({
     chains: [
         {
-            name: 'ethereum',
-            rpcUrl: 'http://localhost:8545',
-            type: 'ethereum',
+            name: 'defi-oracle',
+            rpcUrl: 'http://localhost:138',
+            type: 'defi-oracle',
             bridgeAddress: '0x...', // Ethereum bridge contract address
             erc20HandlerAddress: '0x...', // Ethereum ERC20 handler contract address
             erc721HandlerAddress: '0x...', // Ethereum ERC721 handler contract address
@@ -38,7 +38,7 @@ async function lockAndMint(lockableTokenAddress, mintableTokenAddress, amount, s
     // Get the LockableToken contract instance
     const LockableToken = new web3Eth.eth.Contract(require('../contracts/LockableToken.sol'), lockableTokenAddress);
 
-    // Lock tokens on Ethereum
+    // Lock tokens on DeFi Oracle Mainnet (Chain 138)
     await LockableToken.methods.lockTokens(amount).send({ from: sender });
 
     // Get the MintableToken contract instance on Polygon
