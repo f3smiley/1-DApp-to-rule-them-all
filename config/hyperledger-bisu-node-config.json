@@ -1,8 +1,8 @@
 {
   "besu": {
     "network": "private",
-    "node": {
-      "name": "HyperledgerBesuNode",
+"node": {
+  "name": "HyperledgerBesuNode",
       "rpc": {
         "host": "localhost",
         "port": 8545
